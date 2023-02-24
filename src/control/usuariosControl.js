@@ -28,9 +28,9 @@ const usuariosControl = {
   // Insere um novo registro.
   post: async (req, res) => {
     try {
-      const { usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta } = req.body;
-      const sql = "INSERT INTO usuarios (usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta) VALUES (?, ?, ?, ?, ?, ?, ?, ?, SHA1(?), ?, ?)";
-      const [rows] = await conn.query(sql, [usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta]);
+      const { usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta, usuario_extra } = req.body;
+      const sql = "INSERT INTO usuarios (usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta, usuario_extra) VALUES (?, ?, ?, ?, ?, ?, ?, ?, SHA1(?), ?, ?, ?)";
+      const [rows] = await conn.query(sql, [usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta, usuario_extra]);
       res.json({ data: rows });
     } catch (error) {
       res.json({ status: "error", message: error });
@@ -40,10 +40,10 @@ const usuariosControl = {
   // Edita o registro pelo Id.
   put: async (req, res) => {
     try {
-      const { usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta, usuario_status } = req.body;
+      const { usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta, usuario_extra, usuario_status } = req.body;
       const { id } = req.params;
-      const sql = "UPDATE usuarios SET usuario_nome = ?, usuario_genero = ?, usuario_nascimento = ?, usuario_peso = ?, usuario_altura = ?, usuario_tipo_sanguineo = ?, usuario_imc = ?, usuario_email = ?, usuario_senha = SHA1(?), usuario_reset_pergunta = ?, usuario_reset_resposta = ?, usuario_status = ? WHERE usuario_id = ?"
-      const [rows] = await conn.query(sql, [usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta, usuario_status, id]);
+      const sql = "UPDATE usuarios SET usuario_nome = ?, usuario_genero = ?, usuario_nascimento = ?, usuario_peso = ?, usuario_altura = ?, usuario_tipo_sanguineo = ?, usuario_imc = ?, usuario_email = ?, usuario_senha = SHA1(?), usuario_reset_pergunta = ?, usuario_reset_resposta = ?, usuario_extra = ?, usuario_status = ? WHERE usuario_id = ?"
+      const [rows] = await conn.query(sql, [usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta, usuario_extra, usuario_status, id]);
       res.json({ data: rows });
     } catch (error) {
       res.json({ status: "error", message: error });
