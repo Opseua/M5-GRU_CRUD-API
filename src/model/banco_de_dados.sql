@@ -1,25 +1,25 @@
 -- Apagar o banco de dados se existir
-DROP DATABASE IF EXISTS banco_de_dados_usuarios;
-CREATE DATABASE banco_de_dados_usuarios CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
-USE banco_de_dados_usuarios;
+DROP DATABASE IF EXISTS banco_de_dados;
+CREATE DATABASE banco_de_dados CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE banco_de_dados;
 
--- Criar entidade (tabela)
+-- Criar entidade (tabela usuarios)
 CREATE TABLE usuarios (
-	usuario_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-	usuario_nome VARCHAR(255) NOT NULL,
-	usuario_genero ENUM('F', 'M') NOT NULL,
-	usuario_nascimento DATE NOT NULL,
-	usuario_peso DECIMAL(3,1) NOT NULL,
-	usuario_altura DECIMAL(3,2) NOT NULL,
-	usuario_tipo_sanguineo VARCHAR(30) NOT NULL,
-	usuario_imc DECIMAL(4,2) NOT NULL,
-    usuario_email VARCHAR(255) NOT NULL,
-    usuario_senha VARCHAR(255) NOT NULL,
-    usuario_reset_pergunta VARCHAR(255) NOT NULL,
-    usuario_reset_resposta VARCHAR(255) NOT NULL
+	id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	nome VARCHAR(255) NOT NULL,
+	genero ENUM('F', 'M') NOT NULL,
+	data_nascimento DATE NOT NULL,
+	peso DECIMAL(3,1) NOT NULL,
+	altura DECIMAL(3,2) NOT NULL,
+	tipo_sanguineo VARCHAR(30) NOT NULL,
+	imc DECIMAL(4,2) NOT NULL,
+	email VARCHAR(255) NOT NULL,
+	senha VARCHAR(255) NOT NULL,
+	reset_pergunta VARCHAR(255) NOT NULL,
+	reset_resposta VARCHAR(255) NOT NULL
 );
 
-INSERT INTO usuarios (usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta) 
+INSERT INTO usuarios (nome, genero, data_nascimento, peso, altura, tipo_sanguineo, imc, email, senha, reset_pergunta, reset_resposta) 
 VALUES 
 ('Orlando','M','2001-01-01','75.2','1.85','A+','25.41','orlando@gmail.com','senha_12345678@','Comida favorita?','maça'),
 ('Thiago','M','2002-02-02','80.6','1.73','O-','35.61','thiago@gmail.com','senha_12345678@','Cor favorita?','azul'),
@@ -32,3 +32,14 @@ VALUES
 ('Mariana','F','2009-09-09','61.8','1.74','A+','22.28','mariana@gmail.com','senha_12345678@','Comida favorita?','Arroz'),
 ('Juliana','F','2010-10-10','73.4','1.88','AB-','18.89','juliana@gmail.com','senha_12345678@','Filme favorito?','Velozes e furiosos');
 
+-- Criar entidade (tabela perguntas)
+CREATE TABLE perguntas (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    pergunta VARCHAR(255) NOT NULL
+);
+
+INSERT INTO perguntas (pergunta) 
+VALUES 
+('Qual seu peso?'),
+('Qual sua altura?'),
+('Qual seu tipo sanguineo?');

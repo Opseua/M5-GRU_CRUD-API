@@ -1,33 +1,25 @@
 {
-  "name": "api.experiments",
+  "name": "m5-gru_crud-api",
   "version": "1.0.0",
-  "description": "Primeiros experimentos no desenvolvimento de APIs usand Node.js e MySQL.",
-  "main": "index.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "nodemon index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Luferat/API.Experiments.git"
+    "url": "https://github.com/Opseua/M5-GRU_CRUD-API"
   },
-  "keywords": [
-    "API",
-    "REST",
-    "JSON",
-    "Node.js",
-    "MySQL",
-    "CRUD",
-    "API",
-    "HTTP"
-  ],
-  "author": "André Luferat",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Luferat/API.Experiments/issues"
+    "url": "https://github.com/Opseua/M5-GRU_CRUD-API/issues"
   },
-  "homepage": "https://github.com/Luferat/API.Experiments#readme",
+  "homepage": "https://github.com/Opseua/M5-GRU_CRUD-API#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mysql2": "^3.1.2",
