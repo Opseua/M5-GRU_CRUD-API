@@ -25,23 +25,11 @@ const perguntasControl = {
     }
   },
 
-  // apaga um registro único pelo Id.
-  delete: async (req, res) => {
-    try {
-      const { id } = req.params;
-      const sql = "DELETE FROM perguntas WHERE pergunta_id = ?";
-      const [rows] = await conn.query(sql, [id]);
-      res.json({ data: rows });
-    } catch (error) {
-      res.json({ status: "error", message: error });
-    }
-  },
-
   // Insere um novo registro.
   post: async (req, res) => {
     try {
       const { pergunta_pergunta } = req.body;
-      const sql = "INSERT INTO tabela (pergunta_pergunta) VALUES (?)";
+      const sql = "INSERT INTO perguntas (pergunta_pergunta) VALUES (?)";
       const [rows] = await conn.query(sql, [pergunta_pergunta]);
       res.json({ data: rows });
     } catch (error) {
@@ -61,6 +49,18 @@ const perguntasControl = {
       res.json({ status: "error", message: error });
     }
   },
+
+  // apaga um registro único pelo Id.
+  delete: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const sql = "DELETE FROM perguntas WHERE pergunta_id = ?";
+      const [rows] = await conn.query(sql, [id]);
+      res.json({ data: rows });
+    } catch (error) {
+      res.json({ status: "error", message: error });
+    }
+  }
 };
 
 // Exporta o módulo.

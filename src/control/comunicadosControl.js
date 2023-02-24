@@ -25,18 +25,6 @@ const comunicadosControl = {
         }
     },
 
-    // apaga um registro único pelo Id.
-    delete: async (req, res) => {
-        try {
-            const { id } = req.params
-            const sql = "DELETE FROM comunicados WHERE comunicado_id = ?"
-            const [rows] = await conn.query(sql, [id]);
-            res.json({ data: rows });
-        } catch (error) {
-            res.json({ status: "error", message: error });
-        }
-    },
-
     // Insere um novo registro.
     post: async (req, res) => {
         try {
@@ -56,6 +44,18 @@ const comunicadosControl = {
             const { id } = req.params;
             const sql = "UPDATE comunicados SET comunicado_genero = ?, comunicado_informacao = ?, comunicado_feedback = ?,  comunicado_link = ? WHERE comunicado_id = ?"
             const [rows] = await conn.query(sql, [comunicado_genero, comunicado_informacao, comunicado_feedback, comunicado_link, id]);
+            res.json({ data: rows });
+        } catch (error) {
+            res.json({ status: "error", message: error });
+        }
+    },
+
+    // apaga um registro único pelo Id.
+    delete: async (req, res) => {
+        try {
+            const { id } = req.params
+            const sql = "DELETE FROM comunicados WHERE comunicado_id = ?"
+            const [rows] = await conn.query(sql, [id]);
             res.json({ data: rows });
         } catch (error) {
             res.json({ status: "error", message: error });

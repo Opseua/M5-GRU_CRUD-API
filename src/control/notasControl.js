@@ -25,18 +25,6 @@ const notasControl = {
         }
     },
 
-    // apaga um registro único pelo Id.
-    delete: async (req, res) => {
-        try {
-            const { id } = req.params
-            const sql = "DELETE FROM notas  WHERE nota_id = ?"
-            const [rows] = await conn.query(sql, [id]);
-            res.json({ data: rows });
-        } catch (error) {
-            res.json({ status: "error", message: error });
-        }
-    },
-
     // Insere um novo registro.
     post: async (req, res) => {
         try {
@@ -56,6 +44,18 @@ const notasControl = {
             const { id } = req.params;
             const sql = "UPDATE notas SET nota_titulo = ?, nota_informacao = ?,nota_ultima_edicao = ?, usuario_id = ? WHERE nota_id = ?"
             const [rows] = await conn.query(sql, [nota_titulo, nota_informacao, nota_ultima_edicao, usuario_id, id]);
+            res.json({ data: rows });
+        } catch (error) {
+            res.json({ status: "error", message: error });
+        }
+    },
+
+    // apaga um registro único pelo Id.
+    delete: async (req, res) => {
+        try {
+            const { id } = req.params
+            const sql = "DELETE FROM notas  WHERE nota_id = ?"
+            const [rows] = await conn.query(sql, [id]);
             res.json({ data: rows });
         } catch (error) {
             res.json({ status: "error", message: error });
