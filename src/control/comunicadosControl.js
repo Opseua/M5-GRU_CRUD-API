@@ -50,7 +50,7 @@ const comunicadosControl = {
         }
     },
 
-    // apaga um registro único pelo Id.
+    // Apaga um registro único pelo Id.
     delete: async (req, res) => {
         try {
             const { id } = req.params

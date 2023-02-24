@@ -50,7 +50,7 @@ const usuariosControl = {
     }
   },
 
-  // apaga um registro único pelo Id.
+  // Altera para 'del' um registro único pelo Id.
   delete: async (req, res) => {
     try {
       const { id } = req.params
