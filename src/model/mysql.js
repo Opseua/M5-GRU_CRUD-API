@@ -1,8 +1,6 @@
 
 // Modulos necessarios
 const mysql = require('mysql2');
-
-// Obtém configurações do aplicativo.
 const conf = require('dotenv').config().parsed;
 
 const conn = mysql.createPool({
