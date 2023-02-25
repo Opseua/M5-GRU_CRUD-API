@@ -1,6 +1,9 @@
 // Importa modulos necessarios
 const conn = require('../model/mysql');
 
+// Função de validação de dados
+const comunicadosValidador = require('./comunicadosValidador');
+
 // Objeto "controller" para a entidade "comunicados" do banco de dados.
 const comunicadosControl = {
 
@@ -29,6 +32,12 @@ const comunicadosControl = {
     post: async (req, res) => {
         try {
             const { comunicado_genero, comunicado_informacao, comunicado_feedback, comunicado_link } = req.body;
+            // VALIDAR DADOS
+            const erro_validadar = comunicadosValidador(comunicado_genero, comunicado_informacao, comunicado_feedback, comunicado_link);
+            if (!(erro_validadar == "VALIDACAO_OK")) {
+                return res.json({ "status": "error", "message": erro_validadar });
+            }
+
             const sql = "INSERT INTO comunicados (comunicado_genero, comunicado_informacao, comunicado_feedback, comunicado_link) VALUES (?, ?, ?, ?)";
             const [rows] = await conn.query(sql, [comunicado_genero, comunicado_informacao, comunicado_feedback, comunicado_link]);
             res.json({ data: rows });
@@ -42,6 +51,12 @@ const comunicadosControl = {
         try {
             const { comunicado_genero, comunicado_informacao, comunicado_feedback, comunicado_link } = req.body;
             const { id } = req.params;
+            // VALIDAR DADOS
+            const erro_validadar = comunicadosValidador(comunicado_genero, comunicado_informacao, comunicado_feedback, comunicado_link);
+            if (!(erro_validadar == "VALIDACAO_OK")) {
+                return res.json({ "status": "error", "message": erro_validadar });
+            }
+
             const sql = "UPDATE comunicados SET comunicado_genero = ?, comunicado_informacao = ?, comunicado_feedback = ?,  comunicado_link = ? WHERE comunicado_id = ?"
             const [rows] = await conn.query(sql, [comunicado_genero, comunicado_informacao, comunicado_feedback, comunicado_link, id]);
             res.json({ data: rows });

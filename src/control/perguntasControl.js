@@ -1,6 +1,9 @@
 // Importa modulos necessarios
 const conn = require('../model/mysql');
 
+// Função de validação de dados
+const perguntasValidador = require('./perguntasValidador');
+
 // Objeto "controller" para a entidade "perguntas" do banco de dados.
 const perguntasControl = {
 
@@ -29,6 +32,12 @@ const perguntasControl = {
   post: async (req, res) => {
     try {
       const { pergunta_pergunta } = req.body;
+      // VALIDAR DADOS
+      const erro_validadar = perguntasValidador(pergunta_pergunta);
+      if (!(erro_validadar == "VALIDACAO_OK")) {
+        return res.json({ "status": "error", "message": erro_validadar });
+      }
+
       const sql = "INSERT INTO perguntas (pergunta_pergunta) VALUES (?)";
       const [rows] = await conn.query(sql, [pergunta_pergunta]);
       res.json({ data: rows });
@@ -42,6 +51,12 @@ const perguntasControl = {
     try {
       const { pergunta_pergunta } = req.body;
       const { id } = req.params;
+      // VALIDAR DADOS
+      const erro_validadar = perguntasValidador(pergunta_pergunta);
+      if (!(erro_validadar == "VALIDACAO_OK")) {
+        return res.json({ "status": "error", "message": erro_validadar });
+      }
+
       const sql = "UPDATE perguntas SET pergunta_pergunta = ? WHERE pergunta_id = ?";
       const [rows] = await conn.query(sql, [pergunta_pergunta, id]);
       res.json({ data: rows });

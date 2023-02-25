@@ -1,6 +1,9 @@
 // Importa modulos necessarios
 const conn = require('../model/mysql');
 
+// Função de validação de dados
+const notasValidador = require('./notasValidador');
+
 // Objeto "controller" para a entidade "notas" do banco de dados.
 const notasControl = {
 
@@ -29,7 +32,13 @@ const notasControl = {
     post: async (req, res) => {
         try {
             const { nota_titulo, nota_informacao, nota_ultima_edicao, usuario_id } = req.body;
-            const sql = "INSERT INTO notas ( nota_titulo, nota_informacao,nota_ultima_edicao, usuario_id) VALUES (?, ?, ?, ?)";
+            // VALIDAR DADOS
+            const erro_validadar = notasValidador(nota_titulo, nota_informacao, nota_ultima_edicao, usuario_id);
+            if (!(erro_validadar == "VALIDACAO_OK")) {
+                return res.json({ "status": "error", "message": erro_validadar });
+            }
+
+            const sql = "INSERT INTO notas ( nota_titulo, nota_informacao, nota_ultima_edicao, usuario_id) VALUES (?, ?, ?, ?)";
             const [rows] = await conn.query(sql, [nota_titulo, nota_informacao, nota_ultima_edicao, usuario_id]);
             res.json({ data: rows });
         } catch (error) {
@@ -42,6 +51,12 @@ const notasControl = {
         try {
             const { nota_titulo, nota_informacao, nota_ultima_edicao, usuario_id, } = req.body;
             const { id } = req.params;
+            // VALIDAR DADOS
+            const erro_validadar = notasValidador(nota_titulo, nota_informacao, nota_ultima_edicao, usuario_id);
+            if (!(erro_validadar == "VALIDACAO_OK")) {
+                return res.json({ "status": "error", "message": erro_validadar });
+            }
+
             const sql = "UPDATE notas SET nota_titulo = ?, nota_informacao = ?,nota_ultima_edicao = ?, usuario_id = ? WHERE nota_id = ?"
             const [rows] = await conn.query(sql, [nota_titulo, nota_informacao, nota_ultima_edicao, usuario_id, id]);
             res.json({ data: rows });
