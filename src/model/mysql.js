@@ -4,10 +4,10 @@ const mysql = require('mysql2');
 const conf = require('dotenv').config().parsed;
 
 const conn = mysql.createPool({
-  host: "eyw6324oty5fsovx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  user: "ccsoc33936pri06k",
-  password: "t7e8zbtnprkhbx5a",
-  database: "a8lzgywbc4gzr889",
+  host: "sql.freedb.tech",
+  database: "freedb_M5-GRU_CRUD-API",
+  user: "freedb_Usuario_M5-GRU_CRUD-API",
+  password: "AN*57mHa8qXzaS#",
   port: "3306"
 }).promise();
 
