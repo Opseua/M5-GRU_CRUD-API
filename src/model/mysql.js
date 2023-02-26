@@ -1,17 +1,14 @@
 
 // Modulos necessarios
 const mysql = require('mysql2');
-const conf = require('dotenv').config().parsed;
 
 const conn = mysql.createPool({
-  host: "eyw6324oty5fsovx.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
-  user: "ccsoc33936pri06k",
-  password: "t7e8zbtnprkhbx5a",
-  database: "a8lzgywbc4gzr889",
-  port: "3306"
+  host: process.env.DB_HOSTNAME,
+  user: process.env.DB_USERNAME,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  port: process.env.DB_HOSTPORT
 }).promise();
-
-
 
 
 
