@@ -8,7 +8,8 @@ const conn = mysql.createPool({
   user: conf.USERNAME,
   password: conf.PASSWORD,
   database: conf.DATABASE,
-  port: conf.HOSTPORT
+  port: conf.HOSTPORT,
+  inf: conf.TESTE
 }).promise();
 
 // Exporta o módulo de conexão com o MySQL.
