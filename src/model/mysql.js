@@ -1,18 +1,15 @@
-
-// Modulos necessarios
+// Modulos necessários
 const mysql = require('mysql2');
 
+const conf = require('dotenv').config().parsed;
+
 const conn = mysql.createPool({
-  host: process.env.DB_HOSTNAME,
-  user: process.env.DB_USERNAME,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  port: process.env.DB_HOSTPORT
+  host: conf.HOSTNAME,
+  user: conf.USERNAME,
+  password: conf.PASSWORD,
+  database: conf.DATABASE,
+  port: conf.HOSTPORT
 }).promise();
-
-
-
 
 // Exporta o módulo de conexão com o MySQL.
 module.exports = conn;
-
