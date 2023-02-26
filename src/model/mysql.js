@@ -11,5 +11,9 @@ const conn = mysql.createPool({
   port: "3306"
 }).promise();
 
+
+
+
+
 // Exporta o módulo de conexão com o MySQL.
 module.exports = conn;
