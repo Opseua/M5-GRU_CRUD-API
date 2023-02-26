@@ -14,3 +14,4 @@ const conn = mysql.createPool({
 
 // Exporta o módulo de conexão com o MySQL.
 module.exports = conn;
+
