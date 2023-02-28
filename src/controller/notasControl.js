@@ -2,9 +2,9 @@
 const conn = require('../model/mysql');
 
 // Função de validação de dados
-const notasValidador = require('./notasValidador');
+const notasValidador = require('../model/notasValidador');
 
-// Objeto "controller" para a entidade "notas" do banco de dados.
+// Objeto "controllerer" para a entidade "notas" do banco de dados.
 const notasControl = {
 
     // Lista todos os registros válidos.

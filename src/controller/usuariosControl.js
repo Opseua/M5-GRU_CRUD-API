@@ -2,9 +2,9 @@
 const conn = require('../model/mysql');
 
 // Função de validação de dados
-const usuariosValidador = require('./usuariosValidador');
+const usuariosValidador = require('../model/usuariosValidador');
 
-// Objeto "controller" para a entidade "usuarios" do banco de dados.
+// Objeto "controllerer" para a entidade "usuarios" do banco de dados.
 const usuariosControl = {
 
   // Lista todos os registros válidos.

@@ -7,7 +7,7 @@ const app = express();
 const port = conf.HTTPPORT || 3000;
 
 // Importa as listas de rotas
-const appRouter = require('./src/control/routes');
+const appRouter = require('./src/controller/routes');
 
 // Inicia monitoramento das rotas
 app.use(appRouter);

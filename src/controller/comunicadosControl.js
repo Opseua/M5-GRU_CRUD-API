@@ -2,9 +2,9 @@
 const conn = require('../model/mysql');
 
 // Função de validação de dados
-const comunicadosValidador = require('./comunicadosValidador');
+const comunicadosValidador = require('../model/comunicadosValidador');
 
-// Objeto "controller" para a entidade "comunicados" do banco de dados.
+// Objeto "controllerer" para a entidade "comunicados" do banco de dados.
 const comunicadosControl = {
 
     // Lista todos os registros válidos.
