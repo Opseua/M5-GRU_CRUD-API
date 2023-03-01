@@ -7,13 +7,13 @@
 
 A proposta da nossa aplicação é permitir e facilitar que qualquer pessoa possa registrar informações em um 'bloco de notas' voltado para área da saúde.
 
-Além das notas criadas, nossa aplicação ainda permite que o usuário crie um perfil com o seu 'nome', 'gênero', 'data de nascimento', 'peso', 'altura','tipo sanguineo' e 'IMC', que é gerado automaticamente com base nos dados inseridos.
+Além das notas criadas, nossa aplicação ainda permite que o usuário crie um perfil com o seu 'nome', 'gênero', 'data de nascimento', 'peso', 'altura' e 'tipo sanguineo'. Também é inserido no perfil o 'IMC', que é gerado automaticamente com base nos dados inseridos.
 
 A ideia é que a aplicação auxilie no registro de consultas agendadas, horário de remédios, controle de medicamentos, cronograma de vacinação, e muito mais!
 
 Nossa API é composta por 4 entidades
 
-'usuarios' que armazena todas as informações dos respectivos usuário da aplicação
+
 ## Entidades
 
 - 'usuarios'
