@@ -20,11 +20,11 @@ const usuariosControl = {
   // Lista um registro único pelo Id.
   getOne: async (req, res) => {
     try {
-      const { id } = req.params;
+      var id = req.params.id;
       if ((id.match(/email=/))) {
-        const [rows] = await conn.query("SELECT * FROM usuarios WHERE usuario_email = ? AND usuario_status = 'on'", [id.replace("email=", "")]);
+        var [rows] = await conn.query("SELECT * FROM usuarios WHERE usuario_email = ? AND usuario_status = 'on'", [id.replace("email=", "")]);
       } else {
-        const [rows] = await conn.query("SELECT * FROM usuarios WHERE usuario_id = ? AND usuario_status = 'on'", [id]);
+        var [rows] = await conn.query("SELECT * FROM usuarios WHERE usuario_id = ? AND usuario_status = 'on'", [id]);
       };
       res.json({ data: rows });
     } catch (error) {
