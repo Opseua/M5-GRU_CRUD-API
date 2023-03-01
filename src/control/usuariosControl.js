@@ -27,10 +27,15 @@ const usuariosControl = {
 
     try {
 
-      const { id } = req.params;
-      const [rows] = await conn.query("SELECT * FROM usuarios WHERE usuario_id = ?", [id]);
-      res.json({ data: rows });
+      var id = req.params.id;
+      if ((id.match(/email=/))) {
+        var [rows] = await conn.query("SELECT * FROM usuarios WHERE usuario_email = ? AND usuario_status = 'on'", [id.replace("email=", "")]);
+      } else {
+        var [rows] = await conn.query("SELECT * FROM usuarios WHERE usuario_id = ? AND usuario_status = 'on'", [id]);
+      };
 
+      res.json({ data: rows });
+      
     } catch (error) {
 
       res.json({ status: "error", message: error });
