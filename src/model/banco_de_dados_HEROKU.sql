@@ -25,7 +25,8 @@ CREATE TABLE usuarios (
 );
 
 -- Inserir dados na tabela (Feito por: ORLANDO)
-INSERT INTO usuarios (usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta, usuario_extra, usuario_status) 
+INSERT INTO usuarios 
+(usuario_nome, usuario_genero, usuario_nascimento, usuario_peso, usuario_altura, usuario_tipo_sanguineo, usuario_imc, usuario_email, usuario_senha, usuario_reset_pergunta, usuario_reset_resposta, usuario_extra, usuario_status) 
 VALUES
 ('Orlando','Masculino','2001-01-01','75.2','1.85','A+','25.41','orlando@gmail.com',SHA1('senha_@_user_1'),'Comida favorita?','maça', '{\"inf_1\":\"Essa é a informação adicional 1\",\"inf_2\":\"Essa é a informação adicional 2\",\"inf_3\":\"Essa é a informação adicional 3\"}', 'on'),
 ('Thiago','Masculino','2002-02-02','80.6','1.73','O-','35.61','thiago@gmail.com',SHA1('senha_@_user_2'),'Cor favorita?','azul', '{\"inf_1\":\"Essa é a informação adicional 1\",\"inf_2\":\"Essa é a informação adicional 2\",\"inf_3\":\"Essa é a informação adicional 3\"}', 'on'),
@@ -51,7 +52,9 @@ CREATE TABLE notas (
 );
 
 -- Inserir dados na tabela (Feito por: YASMIM/PRISCILA)
-INSERT INTO notas (nota_titulo, nota_informacao,nota_ultima_edicao,usuario_id)  VALUES
+INSERT INTO notas 
+(nota_titulo, nota_informacao,nota_ultima_edicao,usuario_id)  
+VALUES
 ('Consultas marcadas', '15/02/2023 consulta no Centro do RJ com o Dr Marcelo, para checar a minha coluna', '2001-01-01 12:27:00','1'),
 ('Remédios para tomar', 'Tomar o remédio para diabetes nesses horários 12:00, 22:00, 04:00', '2002-02-02 13:12:00','1'),
 ('Próximas vacinas', '01/07/2023 vacina de COVID em Madureira, chegar 8h no local', '2003-03-03 14:09:00','6'),
@@ -72,7 +75,8 @@ CREATE TABLE perguntas (
 );
 
 -- Inserir dados na tabela (Feito por: GABRIELLY)
-INSERT INTO perguntas (pergunta_pergunta) 
+INSERT INTO perguntas 
+(pergunta_pergunta) 
 VALUES
 ('Qual seu peso?'),
 ('Qual sua altura?'),
@@ -90,7 +94,8 @@ CREATE TABLE comunicados (
 );
 
 -- Inserir dados na tabela (Feito por: MATHEUS)
-INSERT INTO comunicados (comunicado_genero, comunicado_informacao, comunicado_feedback, comunicado_link)
+INSERT INTO comunicados 
+(comunicado_genero, comunicado_informacao, comunicado_feedback, comunicado_link)
 VALUES
 ('Feminino','você sabe fazer o auto exame?','beleza!é isso aí, mantenha a saúde em dia!','https://www.inca.gov.br/noticias/confira-recomendacoes-do-ministerio-da-saude-para-o-rastreamento-do-cancer-de-mama'),
 ('Feminino','Gostaria de fazer mais sobre o câncer de mama','Tudo bem! quem sabe no futuro!?','https://www.gov.br/inca/pt-br/assuntos/gestor-e-profissional-de-saude/controle-do-cancer-de-mama/dados-e-numeros/mamografias-no-sus'),
@@ -108,8 +113,9 @@ CREATE TABLE sobre (
 	sobre_descricao VARCHAR(255) NOT NULL
 );
 
--- Inserir dados na tabela
-INSERT INTO sobre (sobre_titulo, sobre_descricao) 
+-- Inserir dados na tabela (Feito por: ORLANDO)
+INSERT INTO sobre 
+(sobre_titulo, sobre_descricao) 
 VALUES 
 ('Titulo 1','Descrição 1'),
 ('Titulo 2','Descrição 2'),
@@ -125,8 +131,9 @@ CREATE TABLE funcionalidades (
 	funcionalidade_descricao VARCHAR(255) NOT NULL
 );
 
--- Inserir dados na tabela
-INSERT INTO funcionalidades (funcionalidade_titulo, funcionalidade_descricao) 
+-- Inserir dados na tabela (Feito por: ORLANDO)
+INSERT INTO funcionalidades 
+(funcionalidade_titulo, funcionalidade_descricao) 
 VALUES 
 ('Cadastrar notas','Com a nossa aplicação você pode cadastrar quantas notas quiser.'),
 ('Visualizar','Todas as suas notas ficam registradas e podem ser lidas a qualquer momento!'),
