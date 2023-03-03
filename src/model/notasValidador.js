@@ -10,12 +10,12 @@ function notasValidador(nota_titulo, nota_informacao, nota_ultima_edicao, usuari
     return "Erro informacao!"
   };
 
-  // Validar data de nascimento (se está no padrão '2022-02-24')
+  // Validar data última edição (se está no padrão '2022-02-24 12:30:00')
   if ((typeof nota_ultima_edicao === 'undefined') || !(nota_ultima_edicao.match(/^(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):(\d{2})$/))) {
     return "Erro data da ultima edicao!";
   };
 
-  // Validar peso (se é maior que '0')
+  // Validar usuário ID (chave estrangeira)
   if ((typeof usuario_id === 'undefined') || !(usuario_id > 0)) {
     return "Erro usuário ID (chave estrangeira)!";
   };
