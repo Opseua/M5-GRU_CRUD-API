@@ -102,6 +102,23 @@ VALUES
 -- ###########################################################################################
 
 -- Criar tabela (Feito por: ORLANDO)
+CREATE TABLE sobre (
+	sobre_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+	sobre_titulo VARCHAR(255) NOT NULL,
+	sobre_descricao VARCHAR(255) NOT NULL
+);
+
+-- Inserir dados na tabela
+INSERT INTO sobre (sobre_titulo, sobre_descricao) 
+VALUES 
+('Titulo 1','Descrição 1'),
+('Titulo 2','Descrição 2'),
+('Titulo 3','Descrição 3'),
+('Titulo 4','Descrição 4');
+
+-- ###########################################################################################
+
+-- Criar tabela (Feito por: ORLANDO)
 CREATE TABLE funcionalidades (
 	funcionalidade_id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
 	funcionalidade_titulo VARCHAR(255) NOT NULL,
@@ -110,10 +127,9 @@ CREATE TABLE funcionalidades (
 
 -- Inserir dados na tabela
 INSERT INTO funcionalidades (funcionalidade_titulo, funcionalidade_descricao) 
-VALUES
+VALUES 
 ('Cadastrar notas','Com a nossa aplicação você pode cadastrar quantas notas quiser.'),
 ('Visualizar','Todas as suas notas ficam registradas e podem ser lidas a qualquer momento!'),
 ('Editar','Precisa editar alguma nota? Isso também é possível!'),
 ('Remover','Não precisa mais da nota... sem problemas no Caderno de Saúde você pode apagar um nota sempre que precisar.');
 
--- ###########################################################################################

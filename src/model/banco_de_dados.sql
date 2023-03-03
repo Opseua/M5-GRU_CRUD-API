@@ -132,3 +132,5 @@ VALUES
 ('Visualizar','Todas as suas notas ficam registradas e podem ser lidas a qualquer momento!'),
 ('Editar','Precisa editar alguma nota? Isso também é possível!'),
 ('Remover','Não precisa mais da nota... sem problemas no Caderno de Saúde você pode apagar um nota sempre que precisar.');
+
+-- ###########################################################################################
