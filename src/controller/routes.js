@@ -43,6 +43,22 @@ router.post("/comunicados/", bodyParser, comunicadosControl.post);
 router.put("/comunicados/:id", bodyParser, comunicadosControl.put);
 router.delete("/comunicados/:id", comunicadosControl.delete);
 
+// Rotas para as requisições de 'sobre'.
+const sobreControl = require('./sobreControl');
+router.get("/adm/sobre/", sobreControl.getAll);
+router.get("/adm/sobre/:id", sobreControl.getOne);
+router.post("/adm/sobre/", bodyParser, sobreControl.post);
+router.put("/adm/sobre/:id", bodyParser, sobreControl.put);
+router.delete("/adm/sobre/:id", sobreControl.delete);
+
+// Rotas para as requisições de 'funcionalidades'.
+const funcionalidadesControl = require('./funcionalidadesControl');
+router.get("/adm/funcionalidades/", funcionalidadesControl.getAll);
+router.get("/adm/funcionalidades/:id", funcionalidadesControl.getOne);
+router.post("/adm/funcionalidades/", bodyParser, funcionalidadesControl.post);
+router.put("/adm/funcionalidades/:id", bodyParser, funcionalidadesControl.put);
+router.delete("/adm/funcionalidades/:id", funcionalidadesControl.delete);
+
 // Exporta o módulo
 module.exports = router;
 

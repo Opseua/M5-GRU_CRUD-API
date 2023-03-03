@@ -69,7 +69,7 @@ const notasControl = {
     delete: async (req, res) => {
         try {
             const { id } = req.params
-            const sql = "DELETE FROM notas  WHERE nota_id = ?"
+            const sql = "DELETE FROM notas WHERE nota_id = ?"
             const [rows] = await conn.query(sql, [id]);
             res.json({ data: rows });
         } catch (error) {
