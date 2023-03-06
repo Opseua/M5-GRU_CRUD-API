@@ -20,7 +20,6 @@ const notasControl = {
     // Lista um registro único pelo Id.
     getOne: async (req, res) => {
         try {
-            console.log("RODOU");
             var id = req.params.id;
             if ((id.match(/user=/))) {
                 var [rows] = await conn.query("SELECT * FROM notas WHERE usuario_id = ?", [id.replace("user=", "")]);
