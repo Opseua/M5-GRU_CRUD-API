@@ -14,7 +14,11 @@ CREATE TABLE sobre (
 -- Inserir dados na tabela
 INSERT INTO sobre (sobre_titulo, sobre_descricao) 
 VALUES 
-('Titulo 1','Descrição 1'),
-('Titulo 2','Descrição 2'),
-('Titulo 3','Descrição 3'),
-('Titulo 4','Descrição 4');
+('O Caderno da Saúde é uma ferramenta online gratuita para que você possa acompanhar sua saúde de forma fácil e organizada.','• Medicamentos que está tomando,
+ • Resultados de exames médicos
+ • Consultas médicas
+ • Alimentação e exercícios físicos,
+ • Outras observações sobre sua saúde,'),
+('O melhor guia de saúde','O Bloco de Notas da Saúde foi criado para ajudar você a cuidar melhor da sua saúde e a ter mais controle sobre suas informações médicas.'),
+('gratuito','acesse sem custos apenas com anúncios'),
+('novas atualizações','sempre haverá atualizações constantes');
